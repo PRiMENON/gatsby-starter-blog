@@ -1,36 +1,36 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import moment from "moment"
 import kebabCase from "lodash/kebabCase"
 
-const BlogIndex = ({ data, location }) => {
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+
+const Tags = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const { totalCount } = data.allMarkdownRemark
   const posts = data.allMarkdownRemark.nodes
+  const { tag } = pageContext
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <Seo title={`タグ: "${tag}" (0記事)`} />
+        <p>該当するタグの投稿記事がありません。</p>
       </Layout>
     )
   }
 
+  const tagHeader = `タグ: "${tag}" (${totalCount}記事)`
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
+      <Seo title={tagHeader} />
+      <h1>{tagHeader}</h1>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
           const tags = post.frontmatter.tags
-          
+
           return (
             <li key={post.fields.slug}>
               <article
@@ -44,18 +44,22 @@ const BlogIndex = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
-
-                  <div className="tags-article">
-                    {tags && tags.length > 0 && tags.map(tag => {
-                      return (
-                        <Link to={`/tags/${kebabCase(tag)}/`} itemProp="url">
-                          <button>{tag}</button>
-                        </Link>
-                      )
-                    })}
+                  <small>
+                    {moment(post.frontmatter.date).format(
+                      `YYYY年MM月DD日 HH:mm`
+                    )}
+                  </small>
+                  <div className="tags-index">
+                    {tags &&
+                      tags.length > 0 &&
+                      tags.map(tag => {
+                        return (
+                          <Link to={`/tags/${kebabCase(tag)}/`} itemProp="url">
+                            <button>{tag}</button>
+                          </Link>
+                        )
+                      })}
                   </div>
-
                 </header>
                 <section>
                   <p
@@ -74,30 +78,28 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
-
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="All posts" />
+export default Tags
 
 export const pageQuery = graphql`
-  {
+  query ($tag: String) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(
+      limit: 2000
+      sort: { frontmatter: { date: DESC } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
       nodes {
         excerpt
         fields {
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date
           title
           description
           tags
