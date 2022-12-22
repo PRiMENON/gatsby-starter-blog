@@ -1,6 +1,6 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+date: "2015-05-01T22:12:03+09:00"
 description: "Hello World"
 tags: ["雑記", "Gatsby.js"]
 ---
