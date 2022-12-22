@@ -33,6 +33,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
         frontmatter {
           tags
+          date
         }
       }
     }
@@ -62,9 +63,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const moment = require('moment');
 
       createPage({
-        path: post.fields.slug,
+        path: moment(post.frontmatter.date).format('YYYYMMDDHHmmss'),
         component: blogPost,
         context: {
           id: post.id,
