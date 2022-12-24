@@ -48,9 +48,9 @@ const BlogIndex = ({ data, location }) => {
                   <small>{moment(post.frontmatter.date).format(`YYYY-MM-DDTHH:mm:ss`)}</small>
 
                   <div className="tags-article">
-                    {tags && tags.length > 0 && tags.map(tag => {
+                    {tags && tags.length > 0 && tags.map((tag, index) => {
                       return (
-                        <Link to={`/tags/${kebabCase(tag)}/`} itemProp="url">
+                        <Link to={`/tags/${kebabCase(tag)}/`} itemProp="url" key={index}>
                           <button>{tag}</button>
                         </Link>
                       )
