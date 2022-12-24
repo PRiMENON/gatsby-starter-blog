@@ -52,9 +52,9 @@ const Tags = ({ data, pageContext, location }) => {
                   <div className="tags-index">
                     {tags &&
                       tags.length > 0 &&
-                      tags.map(tag => {
+                      tags.map((tag, index) => {
                         return (
-                          <Link to={`/tags/${kebabCase(tag)}/`} itemProp="url">
+                          <Link to={`/tags/${kebabCase(tag)}/`} itemProp="url" key={index}>
                             <button>{tag}</button>
                           </Link>
                         )
