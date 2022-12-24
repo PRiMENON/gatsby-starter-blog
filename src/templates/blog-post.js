@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import kebabCase from "lodash/kebabCase"
+const moment = require('moment');
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
@@ -21,7 +22,7 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p>{moment(post.frontmatter.date).format(`YYYY-MM-DDTHH:mm:ss`)}</p>
 
           <div className="tags-article">
             {tags && tags.length > 0 && tags.map(tag => {
@@ -55,14 +56,14 @@ const BlogPostTemplate = ({
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={`/${moment(previous.frontmatter.date).format('YYYYMMDDHHmmss')}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={`/${moment(next.frontmatter.date).format('YYYYMMDDHHmmss')}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -101,7 +102,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         description
         tags
       }
@@ -112,6 +113,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        date
       }
     }
     next: markdownRemark(id: { eq: $nextPostId }) {
@@ -120,6 +122,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        date
       }
     }
   }

@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import kebabCase from "lodash/kebabCase"
+const moment = require('moment');
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -32,7 +33,7 @@ const BlogIndex = ({ data, location }) => {
           const tags = post.frontmatter.tags
           
           return (
-            <li key={post.fields.slug}>
+            <li key={post.frontmatter.date}>
               <article
                 className="post-list-item"
                 itemScope
@@ -40,11 +41,11 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link to={moment(post.frontmatter.date).format(`YYYYMMDDHHmmss`)} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small>{moment(post.frontmatter.date).format(`YYYY-MM-DDTHH:mm:ss`)}</small>
 
                   <div className="tags-article">
                     {tags && tags.length > 0 && tags.map(tag => {
@@ -97,7 +98,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date
           title
           description
           tags
