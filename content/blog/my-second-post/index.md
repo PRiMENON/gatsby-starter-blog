@@ -2,6 +2,7 @@
 title: My Second Post!
 date: "2015-05-06T23:46:37+09:00"
 tags: ["雑記", "Gatsby.js"]
+draft: false
 ---
 
 Wow! I love blogging so much already.
