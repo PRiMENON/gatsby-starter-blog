@@ -9,7 +9,7 @@ import Seo from "../components/seo"
 const Tags = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { totalCount } = data.allMarkdownRemark
-  const posts = data.allMarkdownRemark.nodes
+  const posts = process.env.NODE_ENV === 'production' ? data.allMarkdownRemark.nodes.filter((value) => !value.frontmatter.draft) : data.allMarkdownRemark.nodes
   const { tag } = pageContext
 
   if (posts.length === 0) {
@@ -103,6 +103,7 @@ export const pageQuery = graphql`
           title
           description
           tags
+          draft
         }
       }
     }

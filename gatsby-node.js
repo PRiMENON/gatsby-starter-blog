@@ -24,7 +24,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(`
   {
     postsRemark: allMarkdownRemark(
-      sort: { frontmatter: { date: ASC }}, limit: 2000
+      sort: { frontmatter: { date: ASC }}
+      ${process.env.NODE_ENV === 'production' ? 'filter: { frontmatter: { draft: { ne: true } } }' : '' }
+      limit: 2000
     ) {
       nodes {
         id
