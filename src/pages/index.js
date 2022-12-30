@@ -9,7 +9,7 @@ const moment = require('moment');
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = process.env.NODE_ENV === 'production' ? data.allMarkdownRemark.nodes.filter((value) => !value.frontmatter.draft) : data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
@@ -102,6 +102,7 @@ export const pageQuery = graphql`
           title
           description
           tags
+          draft
         }
       }
     }
