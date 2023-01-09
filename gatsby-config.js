@@ -41,6 +41,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              ignoreFileExtensions: [`apng`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
