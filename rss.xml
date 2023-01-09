@@ -1,4 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 03 Jan 2023 12:05:54 GMT</lastBuildDate><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 09 Jan 2023 02:05:56 GMT</lastBuildDate><item><title><![CDATA[animation image files]]></title><description><![CDATA[This is the test page for animation image files. animation GIF  This work has been released into the public domain by its author, brian091…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/image/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/image/</guid><pubDate>Sun, 01 Jan 2023 03:02:03 GMT</pubDate><content:encoded>&lt;p&gt;This is the test page for animation image files.&lt;/p&gt;
+&lt;h2&gt;animation GIF&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/6063aa01201356fdac0e6f9c78f2b24c/DNA_animation.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This work has been released into the public domain by its author, brian0918. This applies worldwide.&lt;br&gt;
+&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:DNA_animation.gif&quot;&gt;File:DNA animation.gif&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Animation PNG&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;./3d2.apng&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This work has been released into the public domain by its author, Holger Will. This applies worldwide.&lt;br&gt;
+&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:3d2.png&quot;&gt;File:3d2.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Animation WebP&lt;/h2&gt;
+&lt;p&gt;convert by &lt;a href=&quot;https://ezgif.com/gif-to-webp/&quot;&gt;GIF to WebP converter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/6aa1be739dc678b8874418cd1eed2925/DNA_animation.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This work has been released into the public domain by its author, brian0918. This applies worldwide.&lt;br&gt;
+&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:DNA_animation.gif&quot;&gt;File:DNA animation.gif&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;SVG&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/c2bc6876c5406d6efae7bca2dce620e2/SVG_Circle.svg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication&lt;br&gt;
+&lt;a href=&quot;https://commons.wikimedia.org/wiki/File:SVG_Circle.svg&quot;&gt;File:SVG Circle.svg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://gatsbystarterblogsource.gatsbyjs.io/new-beginnings/</link><guid isPermaLink="false">https://gatsbystarterblogsource.gatsbyjs.io/new-beginnings/</guid><pubDate>Thu, 28 May 2015 13:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
 right at the coast of the Semantics, a large language ocean. A small river named
