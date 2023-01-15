@@ -7,8 +7,10 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
+import propTypes from "prop-types"
 
-const Seo = ({ description, title, children }) => {
+const Seo = ({ description, title, children, topFlag }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -16,6 +18,8 @@ const Seo = ({ description, title, children }) => {
           siteMetadata {
             title
             description
+            siteUrl
+            image
             social {
               twitter
             }
@@ -24,27 +28,39 @@ const Seo = ({ description, title, children }) => {
       }
     `
   )
-
+  const { pathname } = useLocation()
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-
+  const image = site.siteMetadata?.siteUrl + `/` + site.siteMetadata?.image
+  const siteUrl = site.siteMetadata?.siteUrl + pathname || site.siteMetadata?.siteUrl
+  const ogType = topFlag ? "website" : "article"
   return (
     <>
       <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={defaultTitle ? `${title} | ${defaultTitle}` : title} />
+      <meta property="og:site_name" content={defaultTitle} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:image" content={image || ``} />
       <meta name="twitter:card" content="summary" />
-      <meta
-        name="twitter:creator"
-        content={site.siteMetadata?.social?.twitter || ``}
-      />
+      <meta name="twitter:site" content={site.siteMetadata?.social?.twitter || ``} />
+      <meta name="twitter:creator" content={site.siteMetadata?.social?.twitter || ``} />
+      <meta name="twitter:url" content={siteUrl} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={image || ``} />
       {children}
     </>
   )
+}
+
+Seo.defaultProps = {
+  topFlag: false,
+}
+
+Seo.propTypes = {
+  topFlag: propTypes.bool,
 }
 
 export default Seo
