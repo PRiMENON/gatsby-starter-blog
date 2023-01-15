@@ -5,9 +5,7 @@
 [動作デモ](https://soft-quokka-8ff4c0.netlify.app/)
 
 このリポジトリは、[gatsbyjs/gatsby-starter-blog](https://github.com/gatsbyjs/gatsby-starter-blog) をフォークし、さらに PRiMENON がカスタマイズした状態です。
-Gatsby.js 公式が更新されたら、最新状態に追従できるようにしています。
-
-気になる機能があったら、ご自由にどうぞ。
+Gatsby.js 公式が更新されたら、最新状態に追従します。
 
 ## リポジトリ構成
 ```
@@ -31,6 +29,7 @@ Gatsby.js 公式が更新されたら、最新状態に追従できるように�
 * URLを記事の日付ベースに変更する
 * 下書き機能
 * 一部の画像ファイル表示機能
+* OGP（Open Graph Protocol） - 動作デモを[OGP確認ツール](https://ogp.buta3.net/)等でお試しください。
 
 ## 修正
 
@@ -53,5 +52,5 @@ Gatsby.js 公式が更新されたら、最新状態に追従できるように�
 
 ## ライセンス
 
-* gatsby-starter-blog のフォーク内容は BSD Zero Clause License
+* gatsby-starter-blog のフォークは BSD Zero Clause License
 * サンプルとして使用している画像は Public Domain または Creative Commons CC0 1.0
